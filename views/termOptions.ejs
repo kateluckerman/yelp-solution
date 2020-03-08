@@ -1,0 +1,73 @@
+﻿<%- include ('_header'); -%>
+
+<h3>You are searching for <%= termName %> in <%= location %></h3>
+
+<h1>What is most important to you?</h1>
+
+<%if (term == "restaurants") { %>
+    <div>
+        <p><a href="/cuisine?term=<%= term %>&location=<%= location %>">Cuisine</a></p>
+    </div>
+    <%- include ('_restaurantOptions'); -%>
+<% } %>
+
+<%if (term == "shopping") { %>
+    <div>
+        <p>Type of Store</p>
+        <form method='GET' action="/result/default/<%= location %>">
+        <div>
+            <div>
+                <span>Enter a store type:</span>
+            </div>
+            <div>
+                <input type="text" id="term" name="term"/>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="search" />
+        </div>
+    </form>
+    </div>
+<% } %>
+
+<%if (term == "active") { %>
+    <div>
+        <p>Specific Activity</p>
+        <form method='GET' action="/result/default/<%= location %>">
+        <div>
+            <div>
+                <span>Enter an activity or type of attraction:</span>
+            </div>
+            <div>
+                <input type="text" id="term" name="term"/>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="search" />
+        </div>
+    </form>
+    </div>
+<% } %>
+
+<%if (term == "beauty" || term == "home") { %>
+    <div>
+        <p>Specific Services</p>
+        <form method='GET' action="/result/default/<%= location %>">
+        <div>
+            <div>
+                <span>Enter the service you're looking for:</span>
+            </div>
+            <div>
+                <input type="text" id="term" name="term"/>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="search" />
+        </div>
+    </form>
+    </div>
+<% } %>
+
+<%- include ('_standardOptions'); -%>
+
+<%- include ('_footer'); -%>

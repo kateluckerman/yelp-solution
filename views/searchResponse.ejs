@@ -1,0 +1,38 @@
+﻿<%- include ('_header'); -%>
+
+<h3>You are searching for: <%= termName %> in <%= location %> </h3>
+
+<%if (choice == "price") { %>
+    <h3>Displaying restaurants in your chosen price range</h3>
+<% } %>
+
+<%if (choice == "rating") { %>
+    <h3>Responses are ordered by rating</h3>
+<% } %>
+
+<%if (choice == "open-now") { %>
+    <h3>Displaying results open now</h3>
+<% } %>
+
+<%if (choice == "deals") { %>
+    <h3>Displaying businesses that are offering Yelp Deals</h3>
+<% } %>
+
+<%if (choice == "near-me") { %>
+    <h3>Responses are sorted by distance</h3>
+<% } %>
+
+<%if (choice == "reservations") { %>
+    <h3>Displaying businesses with Yelp Reservations enabled</h3>
+<% } %>
+
+<%if (choice == "waitlist") { %>
+    <h3>Displaying businesses with Yelp Waitlist enabled</h3>
+<% } %>
+
+<%- include ('_businessList'); -%>
+
+<%- include ('_footer'); -%>
+
+    
+

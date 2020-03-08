@@ -1,0 +1,20 @@
+{
+  "name": "yelp-solution",
+  "version": "0.0.1",
+  "description": "Uses the Yelp fusion API to display search results based on user choices",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "html5-geolocation": "^2.0.0",
+    "path": "^0.12.7",
+    "yelp-fusion": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "Kate Luckerman",
+  "license": "ISC"
+}

@@ -1,0 +1,34 @@
+﻿<%- include ('_header'); -%>
+
+<h3>You are searching for restaurants in <%= location %></h3>
+
+<h1>Choose from popular selections:</h1>
+
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=tradamerican">American</a></p>
+</div>
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=breakfast">Breakfast & Brunch</a></p>
+</div>
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=cafes">Cafes</a></p>
+</div>
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=chinese">Chinese</a></p>
+</div>
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=hotdogs">Fast Food</a></p>
+</div>
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=italian">Italian</a></p>
+</div>
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=mexican">Mexican</a></p>
+</div>
+<div>
+    <p><a href="/cuisine/options?term=restaurants&location=<%= location %>&category=sushi">Sushi</a></p>
+</div>
+
+<h1>or enter your own</h1>
+
+<%- include ('_footer'); -%>

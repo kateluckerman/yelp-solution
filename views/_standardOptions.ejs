@@ -1,0 +1,41 @@
+﻿<script>
+    var price = "";
+
+    function processButton(id) {
+        var element = document.getElementById(id);
+        element.setAttribute("style", "background-color:blue")
+        element.setAttribute("onclick", "")
+        if (price != "") {
+            price = price + ",";
+        }
+        price = price + id;
+    };
+
+    function route() {
+        window.location.href = '/result/price?term=<%= term %>&location=<%= location %>&price=' + price;
+    }
+</script>
+
+<div class="price">
+    <p>Price</p>
+    <p>Select the price levels you would like to be displayed</p>
+    <button id="1" onclick="processButton(1)">$</button>
+    <button id="2" onclick="processButton(2)">$$</button>
+    <button id="3" onclick="processButton(3)">$$$</button>
+    <button id="4" onclick="processButton(4)">$$$$</button>
+    <button id="5" onclick="processButton(5)">$$$$$</button>
+    <button onclick="route()">display results</button>
+</div>
+<div>
+    <p><a href="/result/rating?term=<%= term %>&location=<%= location %>">Rating</a></p>
+</div>
+<div>
+    <p><a href="/result/near-me?term=<%= term %>&location=<%= location %>">Near Me</a></p>
+</div>
+<div>
+    <p><a href="/result/open-now?term=<%= term %>&location=<%= location %>">Open Now</a></p>
+</div>
+<div>
+    <p><a href="/result/deals?term=<%= term %>&location=<%= location %>">Offering Deals</a></p>
+</div>
+

@@ -1,0 +1,17 @@
+﻿<%- include ('_header'); -%>
+
+<form method='GET' action="/location/<%= term %>">
+        <div>
+            <div>
+                <span>Where would you like to search for <%= termName %>?</span>
+            </div>
+            <div>
+                <input autocomplete="off" type="text" id="location" name="location" />
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="enter" />
+        </div>
+    </form>
+
+<%- include ('_footer'); -%>
