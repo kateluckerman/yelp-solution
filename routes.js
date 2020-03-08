@@ -1,7 +1,7 @@
 ﻿var express = require("express");
 var router = express.Router();
 
-const yelpGeneral = require('./generalsearch')
+const yelpGeneral = require('./yelpsearch')
 const yelpSearch = yelpGeneral.yelpSearch;
 const businessSearch = yelpGeneral.businessSearch;
 
