@@ -1,5 +1,5 @@
 ﻿<ul>
-    <% for (var i = 0; i < response.length; i++) { %>
-    <li><%= response[i] %></li>
+    <% for (var i = 0; i < response[0].length; i++) { %>
+    <li><a href="/business/<%= response[1][i] %>"><%= response[0][i] %></a></li>
     <% } %>
 </ul>

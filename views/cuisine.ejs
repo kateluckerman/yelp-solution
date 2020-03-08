@@ -1,6 +1,10 @@
 ﻿<%- include ('_header'); -%>
 
-<h3>You are searching for restaurants in <%= location %></h3>
+<%if (location.includes("lat") && location.includes("long")) { %>
+    <h3>You are searching for restaurants in your area</h3>
+<% } else { %>
+    <h3>You are searching for restaurants in <%= location %></h3>
+<% } %>
 
 <h1>Choose from popular selections:</h1>
 

@@ -1,6 +1,10 @@
 ﻿<%- include ('_header'); -%>
 
-<h3>You are searching for: <%= termName %> in <%= location %> </h3>
+<%if (location.includes("lat") && location.includes("long")) { %>
+    <h3>You are searching for <%= termName %> in your area</h3>
+<% } else { %>
+    <h3>You are searching for <%= termName %> in <%= location %></h3>
+<% } %>
 
 <%if (choice == "price") { %>
     <h3>Displaying restaurants in your chosen price range</h3>

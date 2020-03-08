@@ -1,8 +1,9 @@
 ﻿var express = require("express");
 var router = express.Router();
 
-const yelp = require('./yelpsearch')
-const yelpSearch = yelp.yelpSearch;
+const yelpGeneral = require('./generalsearch')
+const yelpSearch = yelpGeneral.yelpSearch;
+const businessSearch = yelpGeneral.businessSearch;
 
 function setName(term) {
     var termName;
@@ -108,21 +109,47 @@ router.get('/result/default/:location', function (req, res) {
     var choice = term;
     var termName = term;
     var response = '';
+    var latitude = '';
+    var longitude = '';
 
-    search = new yelpSearch({ term: term, location: location })
-    setTimeout(function () {
-        response = search.searchResponse;
-    }, 2000)
+    if (location.includes("lat") && location.includes("long")) {
+        latitude = location.substring(location.indexOf("lat:") + 4, location.indexOf(","));
+        longitude = location.substring(location.indexOf("long:") + 5);
+    }
 
-    setTimeout(function () {
-        res.render("searchResponse", {
-            "term": term,
-            "location": location,
-            "response": response,
-            "termName": termName,
-            "choice": choice
-        });
-    }, 2100)
+    if (latitude != "") {
+        search = new yelpSearch({ term: term, location: location })
+        setTimeout(function () {
+            response = search.businessNames;
+        }, 2000)
+
+        setTimeout(function () {
+            res.render("searchResponse", {
+                "term": term,
+                "location": location,
+                "response": response,
+                "termName": termName,
+                "choice": choice
+            });
+        }, 2100)
+    }
+
+    else {
+        search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude })
+        setTimeout(function () {
+            response = search.businessNames;
+        }, 2000)
+
+        setTimeout(function () {
+            res.render("searchResponse", {
+                "term": term,
+                "location": location,
+                "response": response,
+                "termName": termName,
+                "choice": choice
+            });
+        }, 2100)
+    }
 });
 
 
@@ -131,74 +158,123 @@ router.get('/result/:choice', function (req, res) {
     var term = req.query.term;
     var location = req.query.location;
     var termName = setName(term);
-    var response = '';
+    var response = new Array();
+
+    var latitude = '';
+    var longitude = '';
+
+    if (location.includes("lat") && location.includes("long")) {
+        latitude = location.substring(location.indexOf("lat:") + 4, location.indexOf(","));
+        longitude = location.substring(location.indexOf("long:") + 5);
+    }
 
     if (choice == "price") {
         var price = req.query.price;
-        search = new yelpSearch({ term: term, location: location, price: price })
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, price: price })
+        }
+        else {
+            search = new yelpSearch({ term: term, location: location, price: price })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
 
     if (choice == "rating") {
         // ideally this would go in another function but async is making it hard
-        search = new yelpSearch({ term: term, location: location, sort_by: "rating" })
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, sort_by: "rating" })
+        }
+        else {
+            search = new yelpSearch({ term: term, location: location, sort_by: "rating" })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
 
     if (choice == "open-now") {
-        search = new yelpSearch({ term: term, location: location, open_now: true })
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, open_now: true })
+        }
+        else {
+            search = new yelpSearch({
+                term: term, location: location, open_now: true })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
 
     if (choice == "deals") {
-        search = new yelpSearch({ term: term, location: location, attributes: "deals" })
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, attributes: "deals" })
+        }
+        else {
+            search = new yelpSearch({ term: term, location: location, attributes: "deals" })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
 
     if (choice == "near-me") {
-        search = new yelpSearch({ term: term, location: location, sort_by: "distance" })
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, sort_by: "distance" })
+        }
+        else {
+            search = new yelpSearch({ term: term, location: location, sort_by: "distance" })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
 
     if (choice == "cuisine") {
         var category = req.query.category;
-        search = new yelpSearch({ term: term, location: location, categories: category})
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, categories: category })
+        }
+        else {
+            search = new yelpSearch({ term: term, location: location, categories: category })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
 
     if (choice == "reservations") {
-        search = new yelpSearch({ term: term, location: location, attributes: "reservation" })
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, attributes: "reservation" })
+        }
+        else {
+            search = new yelpSearch({ term: term, location: location, attributes: "reservation" })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
 
     if (choice == "waitlist") {
-        search = new yelpSearch({ term: term, location: location, attributes: "waitlist_reservation" })
+        if (latitude != "") {
+            search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, attributes: "waitlist_reservation" })
+        }
+        else {
+            search = new yelpSearch({ term: term, location: location, attributes: "waitlist_reservation" })
+        }
         setTimeout(function () {
-            response = search.searchResponse;
+            response.push(search.businessNames);
+            response.push(search.businessIds);
         }, 2000)
     }
-
-    if (choice == "delivery") {
-        search = new yelpSearch({ term: term, location: location, categories: "fooddeliveryservices" })
-        setTimeout(function () {
-            response = search.searchResponse;
-        }, 2000)
-    }
-
 
     setTimeout(function () {
         res.render("searchResponse", {
@@ -210,18 +286,22 @@ router.get('/result/:choice', function (req, res) {
         });
     }, 2100)
 });
+
+router.get('/business/:id', function (req, res) {
+    var id = req.params.id
+
+    search = new businessSearch(id);
+    setTimeout(function () {
+        response = search.response;
+    }, 2000)
+
+    setTimeout(function () {
+        res.render("businessPage", {
+            "response": response
+        })
+    }, 2100)
     
 
-
-/*
-        var responseInterval = setInterval(function () {
-            if (!(response == '' || typeof response == 'undefined')) {
-                clearInterval(responseInterval);
-                setTimeout(function () { console.log(response) }, 5000);
-            }
-            response = searches.ratingSearch(term, location);
-        }, 1000);
-        */
-
-
+});
+   
 module.exports = router;
