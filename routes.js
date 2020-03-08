@@ -48,7 +48,7 @@ router.get('/indexOption/:term', function (req, res) {
     var term = req.params.term;
     var termName = setName(term);
 
-    res.render("locationRequest", {
+    res.render("locationrequest.ejs", {
         "term": term,
         "termName": termName
     })
@@ -58,7 +58,7 @@ router.get('/indexOption', function (req, res) {
     var term = req.query.term;
     var termName = setName(term);
 
-    res.render("locationRequest", {
+    res.render("locationrequest", {
         "term": term,
         "termName": termName
     })
