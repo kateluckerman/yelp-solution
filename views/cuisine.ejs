@@ -1,45 +1,45 @@
 ﻿<%- include ('_header'); -%>
 
 <div class="centerText">
-<%if (location.includes("lat") && location.includes("long")) { %>
-    <h3 class="search">You are searching for restaurants in your area</h3>
-<% } else { %>
-    <h3 class="search">You are searching for restaurants in <%= location %></h3>
-<% } %>
+    <%if (location.includes("lat") && location.includes("long")) { %>
+        <h3 class="search">You are searching for restaurants in your area</h3>
+    <% } else { %>
+        <h3 class="search">You are searching for restaurants in <%= location %></h3>
+    <% } %>
 </div>
 
 <div class="question">
-<h1 style="font-family: 'Karla'; padding: 5px 5px;" >Choose from popular selections:</h1>
+    <h1 style="font-family: 'Karla'; padding: 5px 5px;" >Choose from popular selections:</h1>
 </div>
 
 <div class="centerText" style="margin-bottom:40px">
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=tradamerican" class="indexLink">American</a>
-</span>
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=breakfast" class="indexLink">Breakfast & Brunch</a>
-</span>
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=cafes" class="indexLink">Cafes</a>
-</span>
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=chinese" class="indexLink">Chinese</a>
-</span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=tradamerican" class="indexLink">American</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=breakfast" class="indexLink">Breakfast & Brunch</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=cafes" class="indexLink">Cafes</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=chinese" class="indexLink">Chinese</a>
+    </span>
 </div>
 
 <div class="centerText">
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=hotdogs" class="indexLink">Fast Food</a>
-</span>
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=italian" class="indexLink">Italian</a>
-</span>
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=mexican" class="indexLink">Mexican</a>
-</span>
-<span class="indexOption2">
-    <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=sushi" class="indexLink">Sushi</a>
-</span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=hotdogs" class="indexLink">Fast Food</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=italian" class="indexLink">Italian</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=mexican" class="indexLink">Mexican</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/cuisine/options?term=restaurants&location=<%= location %>&category=sushi" class="indexLink">Sushi</a>
+    </span>
 </div>
 
 <%- include ('_footer'); -%>

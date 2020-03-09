@@ -1,11 +1,11 @@
 ﻿<%- include ('_header'); -%>
 
 <div class="centerText">
-<%if (location.includes("lat") && location.includes("long")) { %>
-    <h3 class="search">You are searching for <%= termName %> in your area:</h3>
-<% } else { %>
-    <h3 class="search">You are searching for <%= termName %> in <%= location %>:</h3>
-<% } %>
+    <%if (location.includes("lat") && location.includes("long")) { %>
+        <h3 class="search">You are searching for <%= termName %> in your area:</h3>
+    <% } else { %>
+        <h3 class="search">You are searching for <%= termName %> in <%= location %>:</h3>
+    <% } %>
 </div>
 
 <div class="question">
@@ -13,13 +13,11 @@
 </div>
 
 <%if (term == "restaurants") { %>
-
     <div class="centerText" style="margin-bottom:40px">
-    <span class="indexOption1">
-        <a href="/cuisine?term=<%= term %>&location=<%= location %>" class="indexLink">Cuisine</a>
-    </span>
-
-    <%- include ('_restaurantOptions'); -%>
+        <span class="indexOption1">
+            <a href="/cuisine?term=<%= term %>&location=<%= location %>" class="indexLink">Cuisine</a>
+        </span>
+        <%- include ('_restaurantOptions'); -%>
     </div>
 <% } %>
 
@@ -27,18 +25,18 @@
     <div class="centerText">
         <span class="shortOption">Type of Store</span>
         <form method='GET' action="/result/default/<%= location %>">
-        <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
-            <div>
-                <span>enter a store type:</span>
+            <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
+                <div>
+                    <span>enter a store type:</span>
+                </div>
+                <div>
+                    <input style="width:50%; height:20px" type="text" id="term" name="term"/>
+                </div>
+                <div>
+                    <input type="submit" value="search" class="priceButton" />
+                </div>
             </div>
-            <div>
-                <input style="width:50%; height:20px" type="text" id="term" name="term"/>
-            </div>
-        <div>
-            <input type="submit" value="search" class="priceButton" />
-        </div>
-            </div>
-    </form>
+        </form>
     </div>
 <% } %>
 
@@ -46,18 +44,18 @@
     <div class="centerText">
         <span class="shortOption">Specific Activity</span>
         <form method='GET' action="/result/default/<%= location %>">
-        <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
-            <div>
-                <span>enter an activity or type of attraction:</span>
+            <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
+                <div>
+                    <span>enter an activity or type of attraction:</span>
+                </div>
+                <div>
+                    <input style="width:50%; height:20px" type="text" id="term" name="term"/>
+                </div>
+                <div>
+                    <input type="submit" value="search" class="priceButton" />
+                </div>
             </div>
-            <div>
-                <input style="width:50%; height:20px" type="text" id="term" name="term"/>
-            </div>
-        <div>
-            <input type="submit" value="search" class="priceButton" />
-        </div>
-            </div>
-    </form>
+        </form>
     </div>
 <% } %>
 
@@ -65,18 +63,18 @@
     <div class="centerText">
         <span class="shortOption">Specific Services</span>
         <form method='GET' action="/result/default/<%= location %>">
-        <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
-            <div>
-                <span>enter the service you're looking for:</span>
+            <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
+                <div>
+                    <span>enter the service you're looking for:</span>
+                </div>
+                <div>
+                    <input style="width:50%; height:20px" type="text" id="term" name="term"/>
+                </div>
+                <div>
+                    <input type="submit" value="search" class="priceButton" />
+                </div>
             </div>
-            <div>
-                <input style="width:50%; height:20px" type="text" id="term" name="term"/>
-            </div>
-        <div>
-            <input type="submit" value="search" class="priceButton" />
-        </div>
-            </div>
-    </form>
+        </form>
     </div>
 <% } %>
 

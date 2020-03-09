@@ -4,12 +4,16 @@ const apiKey = 'UAKsM-LiqMJRkxK8HO3GGjAqRsznetWwRK-bucrwgbrqfTKkMt4SYhqpfLGrwYvd
 
 const client = yelp.client(apiKey);
 
+/*
+ * Accesses business search endpoint of the Yelp fusion API given search terms and stores
+ * the names, ids, and coordinates of results.
+ */
 function yelpSearch(searchTerm) {    
 
-    let businessNames = 'its not working';
-    let businessIds = 'error';
-    let businessLats = 'error';
-    let businessLongs = 'error';
+    let businessNames = '';
+    let businessIds = '';
+    let businessLats = '';
+    let businessLongs = '';
 
     function setResponse(response) {
         businessNames = new Array();
@@ -41,6 +45,10 @@ function yelpSearch(searchTerm) {
 
 }
 
+/*
+ * Accesses the rich business details endpoint of the Yelp fusion API given business id and
+ * stores the name, image, url, rating, and location.
+ */
 function businessSearch(id) {
 
     client.business(id)

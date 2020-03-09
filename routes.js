@@ -41,9 +41,17 @@ function setName(term) {
     return termName;
 }
 
+/*
+ * Load index page
+ */
+
 router.get("/", function (req, res) {
     res.render("index");
 });
+
+/*
+ * Load location request page
+ */
 
 router.get('/indexOption/:term', function (req, res) {
     var term = req.params.term;
@@ -65,6 +73,10 @@ router.get('/indexOption', function (req, res) {
     })
 });
 
+/*
+ * Load options page
+ */
+
 router.get('/location/:term', function (req, res) {
     var term = req.params.term;
     var location = req.query.location;
@@ -78,6 +90,10 @@ router.get('/location/:term', function (req, res) {
     });
 
 });
+
+/*
+ * If cuisine is chosen, cuisine page is loaded and then options page
+ */
 
 router.get('/cuisine', function (req, res) {
     var term = req.query.term;
@@ -103,55 +119,11 @@ router.get('/cuisine/options', function (req, res) {
 
 });
 
-router.get('/result/default/:location', function (req, res) {
-    var location = req.params.location;
-    var term = req.query.term;
-    var choice = term;
-    var termName = term;
-    var response = '';
-    var latitude = '';
-    var longitude = '';
-
-    if (location.includes("lat") && location.includes("long")) {
-        latitude = location.substring(location.indexOf("lat:") + 4, location.indexOf(","));
-        longitude = location.substring(location.indexOf("long:") + 5);
-    }
-
-    if (latitude != "") {
-        search = new yelpSearch({ term: term, location: location })
-        setTimeout(function () {
-            response = search.businessNames;
-        }, 3000)
-
-        setTimeout(function () {
-            res.render("searchResponse", {
-                "term": term,
-                "location": location,
-                "response": response,
-                "termName": termName,
-                "choice": choice
-            });
-        }, 3200)
-    }
-
-    else {
-        search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude })
-        setTimeout(function () {
-            response = search.businessNames;
-        }, 3000)
-
-        setTimeout(function () {
-            res.render("searchResponse", {
-                "term": term,
-                "location": location,
-                "response": response,
-                "termName": termName,
-                "choice": choice
-            });
-        }, 3200)
-    }
-});
-
+/*
+ * Routes for loading the business search results.
+ * Each case has to call its own individual search from the API and get results
+ * before it can render the page.
+ */
 
 router.get('/result/:choice', function (req, res) {
     var choice = req.params.choice;
@@ -179,11 +151,13 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
     if (choice == "rating") {
-        // ideally this would go in another function but async is making it hard
+        // ideally the search initialization would go in another function but async is making it hard
         if (latitude != "") {
             search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude, sort_by: "rating" })
         }
@@ -193,6 +167,8 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
@@ -207,6 +183,8 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
@@ -220,6 +198,8 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
@@ -233,6 +213,8 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
@@ -247,6 +229,8 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
@@ -260,6 +244,8 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
@@ -273,6 +259,8 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
+            response.push(search.businessLats);
+            response.push(search.businessLongs);
         }, 3000)
     }
 
@@ -286,6 +274,11 @@ router.get('/result/:choice', function (req, res) {
         });
     }, 3200)
 });
+
+/*
+ * Each business from result page routes to a page with its own information
+ * from the business details endpoint of the API.
+ */
 
 router.get('/business/:id', function (req, res) {
     var id = req.params.id

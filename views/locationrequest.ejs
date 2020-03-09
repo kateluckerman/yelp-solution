@@ -1,17 +1,17 @@
 ﻿<%- include ('_header'); -%>
 
 <script>
-var x = document.getElementById("demo");
+    var x = document.getElementById("demo");
 
     function getLocation() {
         var x = document.getElementById("demo");
     
- if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(nextPage);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(nextPage);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
 
     function nextPage(position) {
         var latitude = position.coords.latitude;
@@ -21,14 +21,14 @@ var x = document.getElementById("demo");
         window.location.href = '/location/<%= term %>?location=' + location;
     }
 
-
 </script>
 
 <div class="question">
-                <h1 style="font-family: 'Karla'; padding: 5px 5px;">Where would you like to search for <%= termName %>?</h1>
-            </div>
+     <h1 style="font-family: 'Karla'; padding: 5px 5px;">Where would you like to search for <%= termName %>?</h1>
+</div>
+
 <div class="centerText">
-<button class="button" onclick="getLocation()">Use my location</button>
+    <button class="button" onclick="getLocation()">Use my location</button>
 </div>
 
 <p id="demo"></p>
@@ -41,10 +41,10 @@ var x = document.getElementById("demo");
             <div>
                 <input style="width:50%; height:20px" autocomplete="off" type="text" id="location" name="location" />
             </div>
-        <div>
-            <input type="submit" value="enter" class="priceButton"/>
-        </div>
+            <div>
+                <input type="submit" value="enter" class="priceButton"/>
             </div>
+        </div>
     </form>
 
 <%- include ('_footer'); -%>

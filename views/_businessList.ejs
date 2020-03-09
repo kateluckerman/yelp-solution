@@ -1,5 +1,7 @@
 ﻿<div class="centerText">
     <% for (var i = 0; i < response[0].length; i++) { %>
-    <div class="business"><a href="/business/<%= response[1][i] %>" class="indexLink"><%= response[0][i] %></a></div>
+        <div class="business">
+            <a href="/business/<%= response[1][i] %>" class="indexLink"><%= response[0][i] %></a>
+        </div>
     <% } %>
-<div>
+</div>
