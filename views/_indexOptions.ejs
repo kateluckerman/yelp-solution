@@ -1,54 +1,43 @@
-﻿<!--
-<a href="/indexOption/restaurants">
-    <div style="width: 50%; height: 50%; background-color: green; float:left;">
-        <p style="color:white; text-align:center">
-            Restaurants
-        </p>
-    </div>
-</a>
-<a href="/indexOption/restaurants">
-    <div style="width: 50%; height: 50%; background-color: red; float:right;">
-        <p style="color:white; text-align:center">
-            Restaurants
-        </p>
-    </div>
-</a>
--->
+﻿
+<div class="centerText">
+        <span class="indexOption1">
+            <a href="/indexOption/restaurants" class="indexLink">Restaurants</a>
+        </span>
+        <span class="indexOption1">
+            <a href="/indexOption/shopping" class="indexLink">Shopping</a>
+        </span>
+        <span class="indexOption1">
+            <a href="/indexOption/night" class="indexLink">Nightlife</a>
+        </span>
+</div>
 
-<div>
-    <p><a href="/indexOption/restaurants">Restaurants</a></p>
+<div class="centerText" style="margin-top: 40px">
+    <span class="indexOption2">
+        <a href="/indexOption/active" class="indexLink">Active Life</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/indexOption/beauty" class="indexLink">Beauty and Spas</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/indexOption/auto" class="indexLink">Automotive</a>
+    </span>
+    <span class="indexOption2">
+        <a href="/indexOption/home" class="indexLink">Home Services</a>
+    </span>
 </div>
-<div>
-    <p><a href="/indexOption/shopping">Shopping</a></p>
-</div>
-<div>
-    <p><a href="/indexOption/night">Nightlife</a></p>
-</div>
-<div>
-    <p><a href="/indexOption/active">Active Life</a></p>
-</div>
-<div>
-    <p><a href="/indexOption/beauty">Beauty and Spas</a></p>
-</div>
-<div>
-    <p><a href="/indexOption/auto">Automotive</a></p>
-</div>
-<div>
-    <p><a href="/indexOption/home">Home Services</a></p>
-</div>
-<div>
-    <p>Other:</p>
+
+<div class="centerText" style="margin-top:60px; font-family:'Karla'">
     <form method='GET' action="/indexOption">
         <div>
             <div>
-                <span>Enter custom search term</span>
+                <span>or enter a custom search term</span>
             </div>
             <div>
-                <input type="text" id="term" name="term" value=""/>
+                <input autocomplete="off" style="width:50%; height:20px" type="text" id="term" name="term" value=""/>
             </div>
         </div>
         <div>
-            <input type="submit" value="search" />
+            <input type="submit" value="search" style="font-family:'Karla'; width: 70px; height: 100px"/>
         </div>
     </form>
 </div>

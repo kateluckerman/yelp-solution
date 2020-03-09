@@ -121,7 +121,7 @@ router.get('/result/default/:location', function (req, res) {
         search = new yelpSearch({ term: term, location: location })
         setTimeout(function () {
             response = search.businessNames;
-        }, 2000)
+        }, 3000)
 
         setTimeout(function () {
             res.render("searchResponse", {
@@ -131,14 +131,14 @@ router.get('/result/default/:location', function (req, res) {
                 "termName": termName,
                 "choice": choice
             });
-        }, 2100)
+        }, 3200)
     }
 
     else {
         search = new yelpSearch({ term: term, latitude: latitude, longitude: longitude })
         setTimeout(function () {
             response = search.businessNames;
-        }, 2000)
+        }, 3000)
 
         setTimeout(function () {
             res.render("searchResponse", {
@@ -148,7 +148,7 @@ router.get('/result/default/:location', function (req, res) {
                 "termName": termName,
                 "choice": choice
             });
-        }, 2100)
+        }, 3200)
     }
 });
 
@@ -179,7 +179,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     if (choice == "rating") {
@@ -193,7 +193,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     if (choice == "open-now") {
@@ -207,7 +207,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     if (choice == "deals") {
@@ -220,7 +220,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     if (choice == "near-me") {
@@ -233,7 +233,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     if (choice == "cuisine") {
@@ -247,7 +247,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     if (choice == "reservations") {
@@ -260,7 +260,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     if (choice == "waitlist") {
@@ -273,7 +273,7 @@ router.get('/result/:choice', function (req, res) {
         setTimeout(function () {
             response.push(search.businessNames);
             response.push(search.businessIds);
-        }, 2000)
+        }, 3000)
     }
 
     setTimeout(function () {
@@ -284,7 +284,7 @@ router.get('/result/:choice', function (req, res) {
             "termName": termName,
             "choice": choice
         });
-    }, 2100)
+    }, 3200)
 });
 
 router.get('/business/:id', function (req, res) {
@@ -293,13 +293,13 @@ router.get('/business/:id', function (req, res) {
     search = new businessSearch(id);
     setTimeout(function () {
         response = search.response;
-    }, 2000)
+    }, 3000)
 
     setTimeout(function () {
         res.render("businessPage", {
             "response": response
         })
-    }, 2100)
+    }, 3200)
     
 
 });

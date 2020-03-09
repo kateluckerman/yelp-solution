@@ -1,37 +1,53 @@
 ﻿<%- include ('_header'); -%>
 
+<div class="centerText">
 <%if (location.includes("lat") && location.includes("long")) { %>
-    <h3>You are searching for <%= termName %> in your area</h3>
+    <h3 class="search">You are searching for <%= termName %> in your area</h3>
 <% } else { %>
-    <h3>You are searching for <%= termName %> in <%= location %></h3>
+    <h3 class="search">You are searching for <%= termName %> in <%= location %></h3>
 <% } %>
+</div>
 
 <%if (choice == "price") { %>
-    <h3>Displaying restaurants in your chosen price range</h3>
+    <div class="question">
+          <h1 style="font-family: 'Karla'; padding: 5px 5px;">Displaying results in your chosen price range:</h1>
+    </div>
 <% } %>
 
 <%if (choice == "rating") { %>
-    <h3>Responses are ordered by rating</h3>
+    <div class="question">
+          <h1 style="font-family: 'Karla'; padding: 5px 5px;">Displaying results ordered by rating:</h1>
+    </div>
 <% } %>
 
 <%if (choice == "open-now") { %>
-    <h3>Displaying results open now</h3>
+    <div class="question">
+          <h1 style="font-family: 'Karla'; padding: 5px 5px;">Displaying results open now:</h1>
+    </div>
 <% } %>
 
 <%if (choice == "deals") { %>
-    <h3>Displaying businesses that are offering Yelp Deals</h3>
+    <div class="question">
+          <h1 style="font-family: 'Karla'; padding: 5px 5px;">Displaying businesses that are offering Yelp deals:</h1>
+    </div>
 <% } %>
 
 <%if (choice == "near-me") { %>
-    <h3>Responses are sorted by distance</h3>
+    <div class="question">
+          <h1 style="font-family: 'Karla'; padding: 5px 5px;">Displaying results ordered by distance:</h1>
+    </div>
 <% } %>
 
 <%if (choice == "reservations") { %>
-    <h3>Displaying businesses with Yelp Reservations enabled</h3>
+    <div class="question">
+          <h1 style="font-family: 'Karla'; padding: 5px 5px;">Displaying businesses with Yelp Reservations enabled:</h1>
+    </div>
 <% } %>
 
 <%if (choice == "waitlist") { %>
-    <h3>Displaying businesses with Yelp Waitlist enabled</h3>
+    <div class="question">
+          <h1 style="font-family: 'Karla'; padding: 5px 5px;">Displaying businesses with Yelp Waitlist enabled:</h1>
+    </div>
 <% } %>
 
 <%- include ('_businessList'); -%>

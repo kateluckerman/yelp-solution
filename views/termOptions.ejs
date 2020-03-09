@@ -1,73 +1,81 @@
 ﻿<%- include ('_header'); -%>
 
+<div class="centerText">
 <%if (location.includes("lat") && location.includes("long")) { %>
-    <h3>You are searching for <%= termName %> in your area</h3>
+    <h3 class="search">You are searching for <%= termName %> in your area:</h3>
 <% } else { %>
-    <h3>You are searching for <%= termName %> in <%= location %></h3>
+    <h3 class="search">You are searching for <%= termName %> in <%= location %>:</h3>
 <% } %>
+</div>
 
-<h1>What is most important to you?</h1>
+<div class="question">
+    <h1 style="font-family: 'Karla'; padding: 5px 5px;">What is most important to you?</h1>
+</div>
 
 <%if (term == "restaurants") { %>
-    <div>
-        <p><a href="/cuisine?term=<%= term %>&location=<%= location %>">Cuisine</a></p>
-    </div>
+
+    <div class="centerText" style="margin-bottom:40px">
+    <span class="indexOption1">
+        <a href="/cuisine?term=<%= term %>&location=<%= location %>" class="indexLink">Cuisine</a>
+    </span>
+
     <%- include ('_restaurantOptions'); -%>
+    </div>
 <% } %>
 
 <%if (term == "shopping") { %>
-    <div>
-        <p>Type of Store</p>
+    <div class="centerText">
+        <span class="shortOption">Type of Store</span>
         <form method='GET' action="/result/default/<%= location %>">
-        <div>
+        <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
             <div>
-                <span>Enter a store type:</span>
+                <span>enter a store type:</span>
             </div>
             <div>
-                <input type="text" id="term" name="term"/>
+                <input style="width:50%; height:20px" type="text" id="term" name="term"/>
             </div>
-        </div>
         <div>
-            <input type="submit" value="search" />
+            <input type="submit" value="search" class="priceButton" />
         </div>
+            </div>
     </form>
     </div>
 <% } %>
 
 <%if (term == "active") { %>
-    <div>
-        <p>Specific Activity</p>
+    <div class="centerText">
+        <span class="shortOption">Specific Activity</span>
         <form method='GET' action="/result/default/<%= location %>">
-        <div>
+        <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
             <div>
-                <span>Enter an activity or type of attraction:</span>
+                <span>enter an activity or type of attraction:</span>
             </div>
             <div>
-                <input type="text" id="term" name="term"/>
+                <input style="width:50%; height:20px" type="text" id="term" name="term"/>
             </div>
-        </div>
         <div>
-            <input type="submit" value="search" />
+            <input type="submit" value="search" class="priceButton" />
         </div>
+            </div>
     </form>
     </div>
 <% } %>
 
 <%if (term == "beauty" || term == "home") { %>
-    <div>
-        <p>Specific Services</p>
+    <div class="centerText">
+        <span class="shortOption">Specific Services</span>
         <form method='GET' action="/result/default/<%= location %>">
-        <div>
+        <div class="centerText" style="font-family: 'Karla'; margin-bottom:60px">
             <div>
-                <span>Enter the service you're looking for:</span>
+                <span>enter the service you're looking for:</span>
             </div>
             <div>
-                <input type="text" id="term" name="term"/>
+                <input style="width:50%; height:20px" type="text" id="term" name="term"/>
             </div>
-        </div>
         <div>
-            <input type="submit" value="search" />
+            <input type="submit" value="search" class="priceButton" />
         </div>
+            </div>
     </form>
     </div>
 <% } %>

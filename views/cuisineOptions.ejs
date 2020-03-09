@@ -1,14 +1,22 @@
 ﻿<%- include ('_header'); -%>
 
+<div class="centerText">
 <%if (location.includes("lat") && location.includes("long")) { %>
-    <h3>You are searching for <%= termName %> in your area</h3>
+    <h3 class="search">You are searching for <%= termName %> in your area</h3>
 <% } else { %>
-    <h3>You are searching for <%= termName %> in <%= location %></h3>
+    <h3 class="search">You are searching for <%= termName %> in <%= location %></h3>
 <% } %>
+</div>
 
-<h1>What is most important to you?</h1>
+<div class="question">
+<h1 style="font-family: 'Karla'; padding: 5px 5px;" >What is most important to you?</h1>
+</div>
+
+<div class="centerText" style="margin-bottom:40px">
 
 <%- include ('_restaurantOptions'); -%>
+
+    </div>
 
 <%- include ('_standardOptions'); -%>
 

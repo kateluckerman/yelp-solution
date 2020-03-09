@@ -1,9 +1,23 @@
 ﻿<%- include ('_header'); -%>
 
-<h1><%= response.name %></h1>
+<div style="clear:both; text-align:center">
+    <img style="width:50%; margin: 0 30px" src="<%= response.image_url %>" />
+</div>
 
-<img src="<%= response.image_url %>" />
+<div style="clear:both; text-align:center">
+        <h1 style="margin: 0 0; font-family: 'Karla'"><%= response.name %></h1>
+</div>
 
-<p><%= response.location.address1 %></p>
+<div style="clear:both; font-family:'Karla'; text-align:center; font-size:23px">
+    <p><%= response.location.address1 %></p>
+</div>
+
+<div style="clear:both; font-family:'Karla'; text-align:center">
+    <p><a href="<%= response.url %>" class="indexLink">Get More Details</a></p>
+</div>
+
+<div class="centerText">
+    <h1 class="rating"><%= response.rating %>/5</h1>
+</div>
 
 <%- include ('_footer'); -%>

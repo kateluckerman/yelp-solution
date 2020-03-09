@@ -1,0 +1,140 @@
+﻿.question {
+    width:100%;
+    text-align:center;
+    clear:right;
+    margin-top: 0
+}
+
+.indexOption1 {
+    font-family: 'Karla';
+    display: inline-block;
+    width: 22%;
+    margin: 0 4.25%;
+    padding: 50px 0;
+    clear:both;
+    background-color: white;
+    color: black;
+    font-size: 23px;
+}
+
+.indexOption2 {
+    font-family: 'Karla';
+    display: inline-block;
+    width: 22%;
+    margin: 0 1%;
+    padding: 50px 0;
+    clear:both;
+    background-color: white;
+    color: black;
+    font-size: 23px;
+    text-decoration:none;
+}
+
+.shortOption {
+    font-family: 'Karla';
+    display: inline-block;
+    width: 22%;
+    margin: 0 4.25%;
+    padding: 1% 0;
+    clear:both;
+    background-color: white;
+    color: black;
+    font-size: 23px;
+}
+
+.centerText {
+    text-align:center;
+}
+
+.indexLink {
+    color:black;
+    text-decoration:none;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  color: honeydew;
+  text-align: center;
+  font-family: 'Karla';
+}
+
+.button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.search {
+    font-family: 'Karla';
+    clear: both;
+    font-size: 16px;
+    margin-left: 20px;
+    padding: 0 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-decoration: underline;
+}
+
+.price {
+    background-color:white;
+    font-family: 'Karla';
+    width: 50%;
+    padding: 10px 10px;
+}
+
+.priceButton {
+    font-family:'Karla';
+    border: none;
+    background-color:white;
+}
+
+.priceButton:hover {
+    background-color:seagreen;
+    font-family:'Karla';
+    border: none;
+}
+
+.business {
+    font-family: 'Karla';
+    display:inline-block;
+    width: 22%;
+    margin: 15px 1%;
+    padding: 1% 0;
+    clear:both;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+
+.rating {
+    font-family: 'Karla';
+    display: inline-block;
+    width: 40%;
+    margin: 0 4.25%;
+    padding: 1% 0;
+    clear:both;
+    background-color: white;
+    color: black;
+    font-size: 76px;
+}
+
+a:hover {
+    color: black;
+    background-color: seagreen;
+}
+    a:visited {
+        color: black;
+    }
+    a:focus {
+        color: black;
+    }

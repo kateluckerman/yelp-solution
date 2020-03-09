@@ -51,6 +51,8 @@ function businessSearch(id) {
             this.response = {
                 name: searchResponse.name,
                 image_url: searchResponse.image_url,
+                url: searchResponse.url,
+                rating: searchResponse.rating,
                 location: searchResponse.location
             }
         })

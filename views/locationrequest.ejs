@@ -5,7 +5,6 @@ var x = document.getElementById("demo");
 
     function getLocation() {
         var x = document.getElementById("demo");
-    x.style.color = 'red';
     
  if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(nextPage);
@@ -25,22 +24,27 @@ var x = document.getElementById("demo");
 
 </script>
 
-<button onclick="getLocation()">Use my location</button>
+<div class="question">
+                <h1 style="font-family: 'Karla'; padding: 5px 5px;">Where would you like to search for <%= termName %>?</h1>
+            </div>
+<div class="centerText">
+<button class="button" onclick="getLocation()">Use my location</button>
+</div>
 
 <p id="demo"></p>
 
 <form method='GET' action="/location/<%= term %>">
-        <div>
+        <div class="centerText" style="margin-top:60px; font-family:'Karla'">
             <div>
-                <span>Where would you like to search for <%= termName %>?</span>
+                <span>or enter a search location</span>
             </div>
             <div>
-                <input autocomplete="off" type="text" id="location" name="location" />
+                <input style="width:50%; height:20px" autocomplete="off" type="text" id="location" name="location" />
             </div>
-        </div>
         <div>
-            <input type="submit" value="enter" />
+            <input type="submit" value="enter" class="priceButton"/>
         </div>
+            </div>
     </form>
 
 <%- include ('_footer'); -%>

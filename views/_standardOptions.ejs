@@ -3,7 +3,7 @@
 
     function processButton(id) {
         var element = document.getElementById(id);
-        element.setAttribute("style", "background-color:blue")
+        element.setAttribute("style", "background-color:darkseagreen")
         element.setAttribute("onclick", "")
         if (price != "") {
             price = price + ",";
@@ -16,25 +16,32 @@
     }
 </script>
 
-<div class="price">
-    <p>Price</p>
-    <p>Select the price levels you would like to be displayed</p>
-    <button id="1" onclick="processButton(1)">$</button>
-    <button id="2" onclick="processButton(2)">$$</button>
-    <button id="3" onclick="processButton(3)">$$$</button>
-    <button id="4" onclick="processButton(4)">$$$$</button>
-    <button onclick="route()">display results</button>
+<div class="centerText">
+<span class="indexOption2">
+    <a href="/result/rating?term=<%= term %>&location=<%= location %>" class="indexLink">Rating</a>
+</span>
+<span class="indexOption2">
+    <a href="/result/near-me?term=<%= term %>&location=<%= location %>" class="indexLink">Near Me</a>
+</span>
+<span class="indexOption2">
+    <a href="/result/open-now?term=<%= term %>&location=<%= location %>" class="indexLink">Open Now</a>
+</span>
+<span class="indexOption2">
+    <a href="/result/deals?term=<%= term %>&location=<%= location %>" class="indexLink">Offering Deals</a>
+</span>
 </div>
-<div>
-    <p><a href="/result/rating?term=<%= term %>&location=<%= location %>">Rating</a></p>
+
+<div class="centerText" style="margin-top:60px;">
+    <span class="shortOption">Price</span>
 </div>
-<div>
-    <p><a href="/result/near-me?term=<%= term %>&location=<%= location %>">Near Me</a></p>
+<div class="centerText">
+    <span class="price">Select the price levels you would like to be displayed</span>
 </div>
-<div>
-    <p><a href="/result/open-now?term=<%= term %>&location=<%= location %>">Open Now</a></p>
-</div>
-<div>
-    <p><a href="/result/deals?term=<%= term %>&location=<%= location %>">Offering Deals</a></p>
+<div class="centerText" style="background-color:white; width: 50%; margin: 0 25%; padding: 10px 0; font-family: 'Karla'">
+    <button id="1" class="priceButton" onclick="processButton(1)">$</button>
+    <button id="2" class="priceButton" onclick="processButton(2)">$$</button>
+    <button id="3" class="priceButton" onclick="processButton(3)">$$$</button>
+    <button id="4" class="priceButton" onclick="processButton(4)">$$$$</button>
+    <button class="priceButton" onclick="route()">display results</button>
 </div>
 
